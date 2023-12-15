@@ -1,19 +1,21 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-require('dotenv').config();
-const router = require('./routes');
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+require("dotenv").config();
+const router = require("./routes");
 
 // Esta es nuestra aplicación
 const app = express();
 
-// Middlewares 
+// Middlewares
 app.use(express.json());
-app.use(helmet({
+app.use(
+  helmet({
     crossOriginResourcePolicy: false,
-}));
+  })
+);
 app.use(cors());
 
-app.use('/', router);
+app.use("/user", router);
 
 module.exports = app;
